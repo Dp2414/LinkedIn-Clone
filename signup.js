@@ -63,6 +63,6 @@ function signup() {
   alert("Signed up successfully!");
 
   setTimeout(() => {
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
   }, 3000);
 }
