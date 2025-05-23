@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+   
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page" id="page">
+    <nav class="navbar navbar-expand-lg bg-body-white p-0 sticky-top">
+      <div class="container-fluid container1">
+        <div class="firstdiv">
+          <a class="navbar-brand" href="./index.html" onclick="logoimg()">
+            <img src="./Assets/download.png" alt="Bootstrap" />
+          </a>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2" id="form-control" onclick="searchnav()"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+          </form>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" onclick="center()"></span>
+        </button>
+        <div class="collapse navbar-collapse p-0" id="navbarNavDropdown">
+          <ul class="navbar-nav" id="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="./index.html"
+                width="100"
+                onclick="home()"><i class="bi bi-house"></i>
+                <p>Home</p></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-people-fill "></i>
+                <p>My Network</p></a
+              >
+            </li>
+            <li class="nav-item" onclick="jobs()">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-bag-dash"></i>
+                <p >Jobs</p></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-chat-dots"></i>
+                <p>Messaging</p></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-bell-fill"></i>
+                <p>Notifications</p></a
+              >
+            </li>
+            <li class="nav-item dropdown" id="dropdown1" onclick="moveleft()">
+             
+    <a class="nav-link  menu"  href="#"data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+              
+             <a class="nav-link dropdown-toggle menu"href="#"role="button"data-bs-toggle="dropdown"aria-expanded="false">
+              Me
+            </a>
+              </a>
+
+              <div class="dropdown-menu profiledrop">
+                <div class="dropdown-item drop1" href="#" >
+                  <div class="user">
+                    <img src="./Assets/salaar.jfif" alt="" class="profile" />
+
+                    <div class="name">
+                      <h5 class="p-0 m-0">Durga Prasad</h5>
+                      <p class="p-0 m-0">-</p>
+                    </div>
+                  </div>
+                  <button class="btn1  bg-white" style="width: 100%; border-radius: 20px; border: 1px solid rgb(93, 93, 223); color: steelblue;">View Full Profile</button>
+                </div>
+                <hr class="dropdown-divider" />
+                <div class="dropdown-item" href="#">
+                  <h6>Account</h6>
+                  <div class="a">
+                    <a href="" class="Premium">
+                      Try 1 month of Premium for ₹0</a
+                    >
+                    <a href=""> Settings & Privacy</a>
+                    <a href=""> Help</a>
+                    <a href=""> Language</a>
+                  </div>
+                </div>
+                <hr class="dropdown-divider" />
+                <div class="dropdown-item" href="#">
+                  <h6>Manage</h6>
+                  <div class="a">
+                    <a href=""> Posts & Activity </a>
+                    <a href=""> Job Posting Account</a>
+                  </div>
+                </div>
+                <hr class="dropdown-divider" />
+                <div class="dropdown-item" href="#">
+                  <a href="./loader2.html">Sign Out</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown" id="dropdown2" onclick="moveleft()">
+              
+              <a
+                class="nav-link  menu"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+
+              <img src="./Assets/menu.png" alt="" width="20" height="20" />
+              <a class="nav-link dropdown-toggle menu"href="#"role="button"data-bs-toggle="dropdown"aria-expanded="false">
+             
+                For Business
+              </a>
+              <div class="dropdown-menu  shiftLeft ">
+                <div class="dropdown2">
+                  <div class="dropdown-item m-0 drop1 drop2 " href="#" >
+                    <h6 class="h6">My Aps</h6>
+                    <div class="dropa1 da p-0">
+                    <div class="extra">
+                    <a class="dropdown-item icons" href="#">
+                      <i class="bi bi-compass-fill"></i><strong class="text-dark" style="font-size: 14px; ">Find New Clients</strong> </a>
+                    <a class="dropdown-item icons" href="#"
+                      ><i class="bi bi-people-fill person1"></i><strong class="text-dark" style="font-size: 14px; ">Groups</strong></a
+                    >
+                    <a class="dropdown-item icons" href="#"
+                      >
+                      <!-- <i class="bi bi-receipt-cutoff"></i> -->
+                       <img src="./Assets/bills.png" alt="" class="bill">
+                      <strong class="text-dark" style="font-size: 14px; "> Manage & Billing</strong></a
+                    >
+                  </div>
+                    <h6 class="h66">Talent</h6>
+                  <div class="extra">
+                    <a class="dropdown-item icons" href="#"><img src="./Assets/insights.jfif" alt="" class="insights"><strong class="text-dark" style="font-size: 14px; ">Talent inshights</strong></a>
+                    <a class="dropdown-item icons" href="#"><img src="./Assets/post.jfif" alt="" class="postjob"><strong class="text-dark" style="font-size: 14px; ">Try a job Post</strong></a>
+                  </div>
+                    <h6 >Sales</h6>
+                    <div class="extra">
+                    <a class="dropdown-item icons" href="#"
+                      ><img src="./Assets/freelancers.jfif" alt=""><strong class="text-dark" style="font-size: 14px; ">Find Top Freelancers</strong></a
+                    >
+                  </div>
+                    <h6 >Marketing</h6>
+                    <div class="extra">
+                    <a class="dropdown-item icons" href="#"> <img src="./Assets/ad.png" alt="" class="ad"><strong class="text-dark" style="font-size: 14px; ">Advertise</strong></a>
+                </div>  
+                    <h6 >Learning</h6>
+                    <div class="extra">
+                    <a class="dropdown-item icons" href="#"><i class="bi bi-play-btn-fill"></i><strong class="text-dark" style="font-size: 14px; ">Learning</strong></a>
+                  </div>
+                </div>
+                  </div>
+                  <hr class="dropdown-divider" />
+                  <div class="dropdown-item">
+                    <div>
+                      <h5 class="h5">Explore more for business</h5>
+                    </div class="extra">
+                    <div class="dropa1">
+                    <div class="dropa">
+                      <a class="dropdown-item  m-0 p-0 " href="#">Hire on LinkedIn</a>
+                      <a class="dropdown-item m-0 p-0 " href="#"
+                        ><p class="p ">Find, attract and recruit talent</p></a
+                      >
+                    </div>
+                    <div class="dropa">
+                      <a class="dropdown-item m-0 p-0 dropa" href="#">Sell with LinkedIn</a>
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        ><p class="p">Unlock sales opportunities</p></a
+                      >
+                    </div>
+                    <div class="dropa">
+                      <a class="dropdown-item m-0 p-0" href="#">Post a job for free</a>
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        ><p class="p">Get qualified applicants quickly</p></a
+                      >
+                    </div>
+                    <div class="dropa">
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        >Advertise on LinkedIn</a
+                      >
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        ><p class="p">Find, attract and recruit talent</p></a
+                      >
+                    </div>
+                    <div class="dropa">
+                      <a class="dropdown-item m-0 p-0" href="#">Learn with LinkedIn</a>
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        ><p class="p">Courses to develop your employees</p></a
+                      >
+                    </div>
+                    <div class="dropa">
+                      <a class="dropdown-item m-0 p-0" href="#">Admin Center</a>
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        ><p class="p">Manage billing and account details</p></a
+                      >
+                    </div>
+                    <div class="dropa">
+                      <a class="dropdown-item m-0 p-0" href="#"
+                        >Create a Company Page <i class="bi bi-plus-lg"></i>
+                      </a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-box-fill"></i>
+                <p>Try Premium for ₹0</p></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+   
+<div class="messaging-header">
+  <div class="left">
+    <img src="./Assets/salaar.jfif" alt="avatar" class="avatar">
+    <span>Messaging</span>
+  </div>
+  <div class="right">
+    <i class="bi bi-three-dots"></i>
+    <i class="bi bi-box-arrow-up-right"></i>
+    <i class="bi bi-chevron-up"></i>
+  </div>
+</div>
+<!-- <div class="searchnav" id="searchnav">
+  <div class="inputdiv">
+  <span><input type="text" name="" id="" class="input1" placeholder="Enter Keyword / designation / companies"></span>  <span class="slash1">|</span>
+<div class="custom-dropdown" id="dropdown3">
+<div class="dropdown-btn" tabindex="0">
+  <span id="selected"><input type="text" placeholder="Select Experience" class="input2"></span>
+  <span class="arrow">▼</span>
+</div>
+<div class="dropdown-list">
+  <div data-value="fresher">Fresher</div>
+  <div data-value="1">1 year</div>
+  <div data-value="2">2 years</div>
+  <div data-value="3">3 years</div>
+  <div data-value="4">4 years</div>
+  <div data-value="5">5 years</div>
+</div>
+</div>   <span class="slash1">|</span>
+<span><input type="text" name="" id="" class="input3" placeholder="Enter Location"></span>  
+
+</div>
+<button class=" btn bg-primary searchbtn"> <i class="bi bi-search"></i> Search</button>
+</div> -->
+    <div class="main-container" id="main-container">
+  
+
+      <div class="leftdiv">
+        <div class="card1">
+          <img src="./Assets/salaarbgprofilepic.jfif" alt="" />
+          <div class="Experience">
+            <div class="position">
+              <img src="./Assets/salaar.jfif" alt="" class="cardpic" />
+              <i class="bi bi-plus-circle-fill"></i>
+            </div>
+            <h4>Durga Prasad .</h4>
+            <span>-</span>
+            <p class="city">Hyderabad, Telangana</p>
+            <button class="btn2">
+              <i class="bi bi-plus-lg"></i> Experience
+            </button>
+          </div>
+        </div>
+        <div class="card2">
+          <a>Connections</a>
+          <a style="color: gray">Grow your network</a>
+        </div>
+
+        <div class="card3">
+          <a href="">
+            <span class="gain">Gain exclusive tools & insights <br /></span>
+            <a href=""><i class="bi bi-0-square"></i>Redeem Premium for ₹0 </a>
+          </a>
+        </div>
+
+        <div class="card4">
+          <a href=""><i class="bi bi-bookmark-fill"></i> Saved items</a>
+          <a href=""><i class="bi bi-people-fill "></i> Groups</a>
+          <a href=""><i class="bi bi-newspaper"></i> Newsletters</a>
+          <a href=""><i class="bi bi-calendar-event"></i> Events</a>
+        </div>
+      </div>
+      <div class="main" id="main">
+        <div class="post">
+          
+            <div class="postimg">
+              <a href="">
+                <img src="./Assets/salaar.jfif" alt=""  class="postimage"/>
+              </a>
+              <button class="btn3" id="postmodal" onclick="modalpost()"><strong >Start a post</strong></button>
+            </div>
+            
+            <div class="src">
+              <button class="btn4"><i class="bi bi-youtube"></i> <span>Video</span></button>
+              <button class="btn4"><i class="bi bi-image"></i> <span>Photo</span></button>
+              <button class="btn4"><i class="bi bi-filter-square"></i> <span>Write article</span></button>
+            
+          </div>
+        </div>
+     
+        <div class="middle">
+          <div class="line">
+           
+            <div class="sort">
+            <span>Sort by:</span>
+            <select name="" id="" class="select">
+              <option value="" class="option"><strong>Top</strong></option>
+              <option value="">Recent</option>
+            </select>
+          </div>
+        </div>
+           
+          
+        </div>
+
+        <div class="mainposts" id="mainposts">
+        
+        </div>
+      </div>
+
+      <div class="rightdiv">
+        <div class="innerright">
+        <div class="news">
+          <h2 class="newsname">LinkedIn News </h2>
+          <i class="bi bi-info-square-fill"></i>
+
+        </div>
+        <div class="topstories">
+          <h3>Top stories</h3>
+        </div>
+        <a href="">
+          <div class="latestupdates">
+            India,Pakistan tensions: Latest updates
+          </div>
+          <span>1d ago . 29,566 readers</span>
+        </a>
+        <a href="">
+          <div class="latestupdates">
+            Impact of India, Pakistan tensions
+          </div>
+          <span>1d ago . 3,999 readers</span>
+        </a>
+        <a href="">
+          <div class="latestupdates">
+            India-UK FTA: What it means
+          </div>
+          <span>1d ago . 3,475 readers</span>
+        </a>
+      </a>
+      <a href="">
+        <div class="latestupdates">
+          Getting hired at a top finance firm
+        </div>
+        <span>1d ago . 3,145 readers</span>
+      </a>
+      <a href="">
+        <div class="latestupdates">
+          India tops AI trust index
+        </div>
+        <span>1d ago . 2,485 readers</span>
+      </a>
+
+      <button class="btn5">Show more <i class="bi bi-chevron-compact-down"></i></button>
+
+      <div class="puzzel">
+        <h3>Today's puzzel</h3>
+        <div class="puzzelinner">
+        <div class="box">
+         <img src="./Assets/puzzeljiff.gif" alt="" class="puzzelimg">
+        </div>
+        <div class="box22">
+          <div class="box2inner">
+          <h6 class="p-0 m-0">
+        Zip -a quick brain teaser
+          </h6>
+          <p class="p-0 m-0">Solve in 60s or less!</p>
+         <p class="eyeslash"> <i class="bi bi-eye-slash-fill"></i> Score is private to you</p>
+        </div>
+        <i class="bi bi-chevron-compact-right"></i>
+        </div>
+      </div>
+      </div>
+</div>
+<footer class="linkedin-footer">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Help Center</a>
+          <a href="#">Privacy & Terms ▼</a>
+          <a href="#">Ad Choices</a>
+          <a href="#">Advertising</a>
+          <a href="#">Business Services ▼</a>
+          <a href="#">Get the LinkedIn app</a>
+          <a href="#">More</a>
+        </div>
+        <div class="footer-branding">
+          <span class="linkedin-logo">Linked<span class="in-box">in</span></span>
+          <span>LinkedIn Corporation © 2025</span>
+        </div>
+     
+      </footer>
+      </div>
+    </div>
+  </div>
+    <div class="postmodal" id="postmodal">
+      <div class="postbox" id="postbox"></div>
+      </div>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+    <script src="linked.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+<!-- <div class="custom-dropdown" id="dropdown2">
+  <div class="dropdown-btn" tabindex="0">
+    <span id="selected"><input type="text" placeholder="Select Experience" class="input2"></span>
+    <span class="arrow">▼</span>
+</div>
+  <div class="dropdown-list">
+    <div data-value="fresher">Fresher</div>
+    <div data-value="1">1 year</div>
+    <div data-value="2">2 years</div>
+    <div data-value="3">3 years</div>
+    <div data-value="4">4 years</div>
+    <div data-value="5">5 years</div>
+  </div>
+    
+</div> -->
+
+

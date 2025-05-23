@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+     
+    </style>
+  </head>
+  <body>
+    <div class="signup">
+      <div class="container">
+        <div class="create">
+          <div class="newacc">
+            <h1>Create a new account</h1>
+            <p>It's quick and easy.</p>
+          </div>
+
+          <div class="email">
+            <label for="">Enter Email</label>
+            <br />
+            <input type="email" name="" id="email" placeholder="Enter Email" />
+          </div>
+          <div class="password">
+            <label for="">Enter Password</label> <br />
+            <input
+              type="password"
+              name=""
+              id="addPass1"
+              placeholder="Enter Password"
+            />
+          </div>
+          <div class="password2">
+            <label for="">Confirm Password</label><br />
+            <input
+              type="password"
+              name=""
+              id="addPass2"
+              placeholder="Enter Password Again"
+            />
+          </div>
+        </div>
+        <div class="lastdiv">
+          <p class="p">
+            People who use our service may have uploaded your contact
+            information to github and Google. Learn more.By clicking Sign Up,
+            you agree to our Terms, Privacy Policy and Cookies Policy. You may
+            receive SMS notifications from us and can opt out at any time.
+          </p>
+          <button class="btn1" id="btn1" onclick="signup()">Sign Up</button>
+          <h5><a href="./login.html">Already have an account?</a></h5>
+          <p id="error"></p>
+        </div>
+      </div>
+    </div>
+
+  <script src="signup.js"></script>
+  </body>
+</html>
