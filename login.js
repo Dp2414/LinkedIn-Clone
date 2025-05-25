@@ -5,9 +5,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const password = document.querySelector("#password").value.trim();
   const error = document.querySelector("#error");
 
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  // const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  // const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   const savedusers = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -52,10 +52,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     alert("Invalid email or password.");
     error.textContent = "Please enter valid email or password";
 
-    login.style.padding = "51px 120px 51px 120px";
-
+    login.style.padding = "42px 120px 42px 120px";
+   
     return;
   }
+
+ 
+
 
   //   if (!emailRegex.test(email)) {
   //       error.textContent = "Please enter valid email";
@@ -87,3 +90,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   //       }, 6000);
 });
+
+function signup() {
+
+
+  window.location.href = "./signup.html";
+}

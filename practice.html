@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Network – LinkedIn Clone</title>
+ 
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card-actions button {
+  margin-left: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+</style>
+<body>
+  <div class="container">
+
+    <h2>Pending Invitations</h2>
+    <div id="invitations"></div>
+
+    <h2>Your Connections</h2>
+    <div id="connections"></div>
+
+    <h2>People You May Know</h2>
+    <div id="suggestions"></div>
+
+  </div>
+
+  <script >
+const invitations = [
+  { name: "Carlos Mendes", title: "Front-End Developer", img: "https://i.pravatar.cc/50?img=11" },
+  { name: "Hana Takahashi", title: "Cybersecurity Analyst", img: "https://i.pravatar.cc/50?img=12" }
+];
+
+const connections = [
+  { name: "Fatima Ibrahim", title: "Data Scientist at NeoTech", img: "https://i.pravatar.cc/50?img=13" },
+  { name: "Dylan Murphy", title: "DevOps Engineer", img: "https://i.pravatar.cc/50?img=14" }
+];
+
+const suggestions = [
+  { name: "Léa Moreau", title: "Product Designer at PixelWave", img: "https://i.pravatar.cc/50?img=15" },
+  { name: "Samuel Okoro", title: "Mobile App Developer", img: "https://i.pravatar.cc/50?img=16" },
+  { name: "Irina Petrova", title: "Technical Writer at DocuCraft", img: "https://i.pravatar.cc/50?img=17" }
+];
+
+function renderCard(person, actions = []) {
+  return `
+    <div class="card">
+      <img src="${person.img}" alt="${person.name}">
+      <div class="card-info">
+        <strong>${person.name}</strong><br>
+        <small>${person.title}</small>
+      </div>
+      <div class="card-actions">
+        ${actions.map(action => `<button onclick="${action.fn}('${person.name}')">${action.label}</button>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderSection(id, data, actions) {
+  const container = document.getElementById(id);
+  container.innerHTML = data.map(person => renderCard(person, actions)).join("");
+}
+
+function accept(name) {
+  alert(`Accepted ${name}`);
+}
+function ignore(name) {
+  alert(`Ignored ${name}`);
+}
+function connect(name) {
+  alert(`Sent connection request to ${name}`);
+}
+function message(name) {
+  alert(`Messaging ${name}`);
+}
+
+renderSection("invitations", invitations, [
+  { label: "Accept", fn: "accept" },
+  { label: "Ignore", fn: "ignore" }
+]);
+
+renderSection("connections", connections, [
+  { label: "Message", fn: "message" }
+]);
+
+renderSection("suggestions", suggestions, [
+  { label: "Connect", fn: "connect" }
+]);
+
+  </script>
+</body>
+</html>

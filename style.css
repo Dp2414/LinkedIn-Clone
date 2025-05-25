@@ -1379,8 +1379,11 @@ top:0;
   .btn{
     border: none;
     background-color: white;
-    font-size: 20px;
+    font-size: 18px;
   }
+  .selecttocompare{
+    display: flex;
+justify-content: space-between; }
   .reactions>div{
     padding-left: 30px;
   }
@@ -1436,14 +1439,11 @@ top:0;
   gap: 20px;
 }
 
-.job-card {
 
- 
- 
-}
 .ok{
   padding: 20px;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
  
   border-radius: 8px;
@@ -1451,6 +1451,12 @@ top:0;
     background: white;
     gap: 10px;
     width: 100%;
+}
+.selecttocompare{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .job-card h3 {
@@ -1633,12 +1639,12 @@ box-shadow: none;
 }
 .searchnav{
   border: 1px solid lightgray;
-      width: 85%;
+      width: 100%;
       border-radius: 20px;
       margin: auto;
       padding: 5px;
       display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
       display: none;
       /* opacity: 0; */
@@ -1663,17 +1669,17 @@ box-shadow: none;
   transform: translateX(20px);
   transition: opacity 5s ease-in, transform 1s ease;
   
-  
+  width: 100%;
 }
 
-.disappear{
+/* .disappear{
  width: 100px;
 margin-left: 90%;
 display: none;
 position: sticky;
 top: 100px;
 z-index: 100;
-}
+} */
 
 /* .Appliedjobs{
   display: flex;
@@ -1990,4 +1996,15 @@ display: none;
 
 .searchlist3 li:hover {
   background-color: #eee;
+}
+
+
+.addtocartapplied{
+display: flex;
+justify-content: space-between;
+  
+}
+.appliedjobs,.disappear{
+display: none;
+
 }

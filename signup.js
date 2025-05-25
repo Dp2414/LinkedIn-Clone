@@ -10,9 +10,11 @@ function signup() {
 
   const error = document.querySelector("#error");
   let container = document.querySelector(".container");
-  const emailRegex = /^[a-zA-Z._%+-9]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+ 
+  const passwordRegex =/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/;
+
 
   error.textContent = "";
 

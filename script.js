@@ -649,6 +649,7 @@ const jobsData = {
       type: "Contract",
       remote: true,
       description: "Develop and optimize ML models for real-world use cases.",
+      experience: "1",
       applyLink: "https://careers.google.com/ml-engineer",
     },
     {
@@ -659,6 +660,7 @@ const jobsData = {
       posted: "2025-05-11",
       type: "Full-time",
       remote: false,
+      experience: "1",
       description:
         "Node.js and Express backend developer needed with MongoDB experience.",
       applyLink: "https://tcs.com/careers/backend",
@@ -672,7 +674,7 @@ const jobsData = {
       type: "Full-time",
       remote: true,
       description: "Design user-centered experiences for web and mobile apps.",
-      experience: "2+",
+      experience: "2",
       applyLink: "https://infosys.com/careers/ux",
     },
     {
@@ -682,8 +684,10 @@ const jobsData = {
       location: "Hyderabad, India",
       posted: "2025-05-13",
       type: "Full-time",
+      experience: "1",
       remote: true,
       description: "Expertise in Azure DevOps and CI/CD pipelines required.",
+      experience: "Fresher",
       applyLink: "https://careers.microsoft.com/devops",
     },
     {
@@ -707,6 +711,7 @@ const jobsData = {
       posted: "2025-05-13",
       type: "Contract",
       remote: true,
+      experience: "1",
       description: "Manual and automation testing roles available.",
       applyLink: "https://zoho.com/careers/qa",
     },
@@ -730,6 +735,7 @@ const jobsData = {
       posted: "2025-05-12",
       type: "Full-time",
       remote: false,
+      experience: "1",
       description: "Experience with OCI or AWS cloud infrastructure.",
       applyLink: "https://oracle.com/careers/cloud",
     },
@@ -741,6 +747,7 @@ const jobsData = {
       posted: "2025-05-14",
       type: "Full-time",
       remote: true,
+      experience: "1",
       description: "Full stack developer with Angular and Node.js skills.",
       applyLink: "https://accenture.com/jobs/fullstack",
     },
@@ -752,6 +759,7 @@ const jobsData = {
       posted: "2025-05-09",
       type: "Internship",
       remote: true,
+      experience: "1",
       description: "Join the AI research team as a summer intern.",
       applyLink: "https://nvidia.com/careers/aiintern",
     },
@@ -763,6 +771,7 @@ const jobsData = {
       posted: "2025-05-08",
       type: "Full-time",
       remote: false,
+      experience: "1",
       description: "Support enterprise customers via chat, email, and phone.",
       applyLink: "https://freshworks.com/careers/support",
     },
@@ -774,6 +783,7 @@ const jobsData = {
       posted: "2025-05-11",
       type: "Full-time",
       remote: true,
+      experience: "1",
       description: "Work on security audits and threat detection systems.",
       applyLink: "https://cisco.com/careers/cybersecurity",
     },
@@ -785,6 +795,7 @@ const jobsData = {
       posted: "2025-05-10",
       type: "Part-time",
       remote: true,
+      experience: "1",
       description:
         "Create educational video content for school-level curriculum.",
       applyLink: "https://byjus.com/careers/content",
@@ -797,6 +808,7 @@ const jobsData = {
       posted: "2025-05-15",
       type: "Contract",
       remote: false,
+      experience: "1",
       description: "Assist with recruitment, onboarding, and employee support.",
       applyLink: "https://linkedin.com/jobs/hr",
     },
@@ -808,6 +820,7 @@ const jobsData = {
       posted: "2025-05-07",
       type: "Full-time",
       remote: true,
+      experience: "1",
       description: "Solidity developer for Ethereum-compatible dApps.",
       applyLink: "https://polygon.technology/jobs",
     },
@@ -820,6 +833,7 @@ const jobsData = {
       type: "Full-time",
       remote: false,
       description: "Analyze and report on fintech KPIs and customer trends.",
+      experience: "2",
       applyLink: "https://paytm.com/jobs/analyst",
     },
     {
@@ -831,6 +845,7 @@ const jobsData = {
       type: "Full-time",
       remote: false,
       description: "C++ and Unity developers for mobile and console games.",
+      experience: "4",
       applyLink: "https://ubisoft.com/careers/game-dev",
     },
     {
@@ -841,6 +856,7 @@ const jobsData = {
       posted: "2025-05-13",
       type: "Freelance",
       remote: true,
+      experience: "1",
       description: "Design templates and assets for Canva users.",
       applyLink: "https://canva.com/careers/design",
     },
@@ -852,6 +868,7 @@ const jobsData = {
       posted: "2025-05-12",
       type: "Full-time",
       remote: false,
+      experience: "1",
       description: "Manage SEO, SEM and ad campaigns for e-commerce products.",
       applyLink: "https://flipkartcareers.com/marketing",
     },
@@ -865,6 +882,7 @@ const jobsData = {
       remote: false,
       description:
         "Monitor and maintain company IT infrastructure and servers.",
+      experience: "Fresher",
       applyLink: "https://jobs.dell.com/sysadmin",
     },
     {
@@ -875,6 +893,7 @@ const jobsData = {
       posted: "2025-05-13",
       type: "Full-time",
       remote: true,
+      experience: "1",
       description:
         "Define product roadmap and collaborate with engineering teams.",
       applyLink: "https://meesho.com/careers/product",
@@ -887,13 +906,16 @@ const jobsData = {
       posted: "2025-05-11",
       type: "Full-time",
       remote: false,
+      experience: "1",
       description:
         "Node.js and Express backend developer needed with MongoDB experience.",
       applyLink: "https://tcs.com/careers/backend",
     },
   ],
 };
-
+// let CompareJobIds = JSON.parse(localStorage.getItem("CompareJobIds")) || [];
+let CompareJobIds = JSON.parse(localStorage.getItem('CompareJobIds')) || [];
+let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
 function jobs() {
   document.getElementById("main-container").style.display="";
   const main = document.getElementById("main-container");
@@ -911,7 +933,7 @@ function jobs() {
     <span class="arrow">▼</span>
   </div>
   <div class="dropdown-list" onclick="editpref()">
-    <div data-value="fresher">Fresher</div>
+    <div data-value="Fresher">Fresher</div>
     <div data-value="1">1 year</div>
     <div data-value="2">2 years</div>
     <div data-value="3">3 years</div>
@@ -924,8 +946,11 @@ function jobs() {
 </div>
 <button class=" btn bg-primary searchbtn"> <i class="bi bi-search"></i> Search</button>
 </div>
+<div class="addtocartapplied">
+<button class="appliedjobs btn btn-primary bg-primary" id="appliedjobs" onclick="Appliedjobs()">Applied Jobs </button>
 <button class="disappear btn btn-primary bg-primary" id="disappear" onclick="AddtoCart()">Compare </button>
-  <div class="bigbox" id="bigbox">
+</div>  
+<div class="bigbox" id="bigbox">
     <div class="box1" id="box" >
     <h2>Jobs You May Be Interested In</h2>
     
@@ -1024,9 +1049,21 @@ function jobs() {
             ${i.type} • Posted on ${i.posted}
           </div>
           <p class="job-desc">${i.description}</p>
-          <button class="apply-btn btn btn-primary bg-primary " id="compare" onclick="Compare('${
-            i.jobId
-          }',this)" >Apply Now</button>
+          </div>
+          <div class="selecttocompare">
+<button class="apply-btn btn btn-primary bg-primary"
+        data-jobapply-id="${i.jobId}"
+        onclick="Apply('${i.jobId}', this)">
+  Apply
+</button>
+
+<button class="compare-btn btn btn-primary bg-primary"
+        data-jobcompare-id="${i.jobId}"
+        onclick="Compare('${i.jobId}', this)">
+  Select To Compare
+</button>
+          
+           
         </div>
       </div>
     `;
@@ -1041,54 +1078,35 @@ function jobs() {
 
     formcontrol.style.display = "block";
   });
-
-
   renderJobs(jobsData.jobs);
 
-  searchButton.addEventListener("click", () => {
-    const keyword = keywordInput.value.toLowerCase();
+  // const storedCompareIds =
+  //   JSON.parse(localStorage.getItem("CompareJobIds")) || [];
 
-    const experience = experienceInput.value.toLowerCase();
-    const location = locationInput.value.toLowerCase();
 
-    const filtered = jobsData.jobs.filter((job) => {
-      const titleMatch =
-        job.title.toLowerCase().includes(keyword) ||
-        job.description.toLowerCase().includes(keyword) ||
-        job.company.toLowerCase().includes(keyword);
-
-      const experienceMatch = experience
-        ? (() => {
-            const selectedExp = parseInt(experience); // e.g. "2 years" → 2
-            const jobExp = parseInt(job.experience || "0"); // e.g. "2+" → 2
-            return jobExp >= selectedExp;
-          })()
-        : true;
-      // const experienceMatch = experience
-      //   ? (() => {
-      //       if (experience.includes("fresher")) return true;
-
-      //       const selectedExp = parseInt(experience); // user input
-      //       const jobExp = parseInt(job.experience || "0"); // job data
-
-      //       // If selectedExp is a number and jobExp is a number, compare
-      //       if (!isNaN(selectedExp) && !isNaN(jobExp)) {
-      //         return jobExp = selectedExp;
-      //       }
-
-      //       return false; // fallback
-      //     })()
-      //   : true;
-
-      const locationMatch = location
-        ? job.location.toLowerCase().includes(location)
-        : true;
-
-      return titleMatch && experienceMatch && locationMatch;
-    });
-
-    renderJobs(filtered);
+  CompareJobIds.forEach((jobId) => {
+    const button = document.querySelector(`[data-jobcompare-id="${jobId}"]`);
+    if (button) {
+      button.textContent = "Selected";
+      document.getElementById('disappear').style.display = "block";
+     
+    }
   });
+
+  // const appliedIds1 = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+  appliedJobsId.forEach((jobId) => {
+    const button = document.querySelector(`[data-jobapply-id="${jobId}"]`);
+    if (button) {
+      button.textContent = "Applied";
+      
+      document.getElementById("appliedjobs").style.display = "block";
+    }
+    if (button.textContent == "Applied") {
+      document.getElementById("appliedjobs").style.display = "block";
+    }
+  
+  });
+
 
   const dropdown = document.getElementById("dropdown3");
   const btn = dropdown.querySelector(".dropdown-btn");
@@ -1108,6 +1126,64 @@ function jobs() {
       list.style.display = "none";
       console.log(selected.textContent);
     }
+  });
+  searchButton.addEventListener("click", () => {
+    const keyword = keywordInput.value.toLowerCase();
+
+    
+    const experience = document.getElementById("selected").textContent.toLowerCase();
+    const location = locationInput.value.toLowerCase();
+
+    const filtered = jobsData.jobs.filter((job) => {
+      const titleMatch =
+        job.title.toLowerCase().includes(keyword) ||
+        job.description.toLowerCase().includes(keyword) ||
+        job.company.toLowerCase().includes(keyword);
+     
+
+      const experienceMatch = experience
+        ? (() => { 
+          console.log(job.experience)
+          if (experience.toLowerCase() === "fresher" && experience.toLowerCase() == job.experience.toLowerCase())
+            return true;
+          const selectedExp = parseInt(experience);
+          const jobExp = parseInt(job.experience || "0");
+          // console.log(selectedExp)
+          return selectedExp?jobExp >= selectedExp: false  ;
+        })()
+        : true;
+      
+      
+
+      
+      // const experienceMatch = experience
+      //   ? (() => {
+      //       if (experience.includes("fresher")) return jobExp >= selectedExp;
+
+      //       const selectedExp = parseInt(experience); // user input
+      //       const jobExp = parseInt(job.experience || "0"); // job data
+
+      //       // If selectedExp is a number and jobExp is a number, compare
+      //       if (!isNaN(selectedExp) && !isNaN(jobExp)) {
+      //         return jobExp >= selectedExp;
+      //       }
+
+      //       return false; // fallback
+      //     })()
+      //   : true;
+
+      const locationMatch = location
+        ? job.location.toLowerCase().includes(location)
+        : true;
+      console.log(locationMatch,experienceMatch,titleMatch);
+      return titleMatch && experienceMatch && locationMatch;
+    
+    
+    });
+    console.log(filtered);
+
+    renderJobs(filtered);
+   
   });
 
   document.addEventListener("click", (e) => {
@@ -1129,8 +1205,101 @@ function jobs() {
   document.getElementById('form-control').placeholder="Search jobs here"
 
 
+ 
+
+  function Compare(jobId, button) {
+
+    if (!jobId) return;
+    const inList = CompareJobIds.includes(jobId);
+    if (inList) {
+      // remove
+      CompareJobIds = CompareJobIds.filter((id) => id !== jobId);
+      button.textContent = "Select To Compare";
+    } else {
+      CompareJobIds.push(jobId);
+      button.textContent = "Selected";
+      document.getElementById("disappear").style.display = "block";
+      document.getElementById("box2").style.position = "sticky";
+      document.getElementById("box2").style.top = "150px";
+    }
+    console.log("You clicked on:", jobId);
+
+    localStorage.setItem("CompareJobIds", JSON.stringify(CompareJobIds));
+    if (!CompareJobIds || CompareJobIds.length === 0 || CompareJobIds.every((id) => id === null)) {
+      document.getElementById("disappear").style.display = "none";
+    }
+
+    //   console.log("You clicked on:", jobId);
+    //   button.innerHTML = "Added";
+    //   if (button.innerHTML === "Added") {
+    //     if (!CompareJobIds.includes(jobId)) {
+    //       CompareJobIds.push(jobId);
+    //       localStorage.setItem("CompareJobIds",JSON.stringify(CompareJobIds))
+    //     }
+    //     console.log(CompareJobIds);
+        
+    // }
+    
+
+
+  }
+  function Apply(jobId, button) {
+    if (!jobId) return;
+  
+    // let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+ 
+    const inList = appliedJobsId.includes(jobId);
+  if (inList) {
+    // remove
+    appliedJobsId = appliedJobsId.filter(id => id !== jobId);
+    button.textContent = 'Apply';
+          
+  }
+  else {
+   
+    appliedJobsId.push(jobId);
+    button.textContent = "Applied";
+      
+  }
+  console.log("You clicked on:", jobId);
+  
+
+    localStorage.setItem('appliedJobsId', JSON.stringify(appliedJobsId));
+   
+    if (!appliedJobsId || appliedJobsId.length === 0 || appliedJobsId.every((id) => id === null)) {
+      
+      document.getElementById("appliedjobs").style.display = "none";
+    }
+    else if(button.textContent==="Applied") {
+      document.getElementById("appliedjobs").style.display = "block";
+    }
+    // else if (button.textContent === "Apply") {
+      
+    // }
+ 
+  // ------------------------
+
+  
+  }
+
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const storedCompareIds =
+  //     JSON.parse(localStorage.getItem("CompareJobIds")) || [];
+
+  //   storedCompareIds.forEach((jobId) => {
+  //     const button = document.querySelector(`[data-jobcompare-id="${jobId}"]`);
+  //     if (button) {
+  //       button.textContent = "Added";
+  //     }
+  //   });
+  // });
+  window.Compare = Compare;
+  window.Apply = Apply;
+
+
 }
 
+// localStorage.clear()
 
 
 
@@ -1138,35 +1307,95 @@ function jobs() {
 //   console.log("You clicked on:", jobId);
  
 // }
- 
-let appliedJobIds = [];
-  function Compare(jobId, button) {
-    console.log("You clicked on:", jobId);
-    button.innerHTML = "Applied";
-    if ((button.innerHTML === "Applied")) {
-
-      if (!appliedJobIds.includes(jobId)) {
-        appliedJobIds.push(jobId);
-      }
-
-      document.getElementById('disappear').style.display = "block";
-      document.getElementById('box2').style.position = "sticky";
-      document.getElementById("box2").style.top = "150px";
+// 
 
 
-      
-      
-    }
-   
-}
+// let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+// function Apply(jobId, button) {
+//   console.log("You clicked on:", jobId);
+//   if (!appliedJobsId.includes(jobId)) {
+//     appliedJobsId.push(jobId);
+//     localStorage.setItem("appliedJobsId", JSON.stringify(appliedJobsId));
+//   }
+
+//   button.textContent = "Applied";
+
+// }
+
+// function updateAppliedButtons() {
+//   const storedJobs = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+
+//   storedJobs.forEach((jobId) => {
+//     const button = document.querySelector(`[data-job-id="${jobId}"]`);
+//     if (button) {
+//       button.textContent = "Applied";
+//     }
+//   });
+// }
+// updateAppliedButtons();
+
+
 
 
 function AddtoCart() {
+ 
   document.getElementById("main-container").innerHTML = "";
 
 
   const appliedJobs = jobsData.jobs.filter((job) =>
-    appliedJobIds.includes(job.jobId)
+    CompareJobIds.includes(job.jobId)
+  // CompareJobIds.some(id => id === job.jobId)
+  );
+
+  if (appliedJobs.length === 0) {
+   
+    document.getElementById("main-container").innerHTML =
+      "<p>No jobs applied yet.</p>";
+    return;
+  }
+
+  document.getElementById(
+    "main-container"
+  ).innerHTML += `<div><h4>Applied Job Info</h4> <hr></div>
+  
+  <div class="jobsdiv" id="jobsdiv">
+  </div>
+  `;
+
+  appliedJobs.map((job) => {
+    document.getElementById("jobsdiv").innerHTML += `
+    
+      <div class="Appliedjobs">
+        <p><strong>Title:</strong> ${job.title}</p>
+        <p><strong>Company:</strong> ${job.company}</p>
+        <p><strong>Location:</strong> ${job.location}</p>
+        <p><strong>Description:</strong> ${job.description}</p>
+        <p><strong>Type:</strong> ${job.type}</p>
+        <hr/>
+           <button class="btn btn-primary bg-primary "><a href="${job.applyLink}"  target="_blank" class="Applynow">Apply Now</a></button>
+      </div>
+      
+      
+      
+      
+    `;
+    document.getElementById("main-container").style.display = "flex";
+    document.getElementById("main-container").style.flexDirection = "column";
+    document.getElementById("main-container").style.alignItems = "center";
+    document.getElementById("main-container").style.alignContent = "center";
+    // document.getElementById("main-container").style.textAlign = "center";
+    
+  });
+
+ 
+}
+
+function Appliedjobs() {
+  document.getElementById("main-container").innerHTML = "";
+
+  const appliedJobs = jobsData.jobs.filter(
+    (job) => appliedJobsId.includes(job.jobId)
+    // CompareJobIds.some(id => id === job.jobId)
   );
 
   if (appliedJobs.length === 0) {
@@ -1205,29 +1434,79 @@ function AddtoCart() {
     document.getElementById("main-container").style.alignItems = "center";
     document.getElementById("main-container").style.alignContent = "center";
     // document.getElementById("main-container").style.textAlign = "center";
-   
   });
-
 }
 
 
+// let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
 
-
-
-// document.addEventListener("click", function (e) {
-//   if (e.target.classList.contains("apply-btn")) {
-//     const jobId = e.target.dataset.id;
-//     Compare(jobId);
+// function Apply(jobId, button) {
+//   console.log("You clicked on:", jobId);
+//   if (!appliedJobsId.includes(jobId)) {
+//     appliedJobsId.push(String(jobId));
+//     localStorage.setItem("appliedJobsId", JSON.stringify(appliedJobsId));
 //   }
+
+//   button.textContent = "Applied";
+// }
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const storedJobs = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+
+//   storedJobs.forEach((jobId) => {
+//     const button = document.querySelector(`[data-job-id="${jobId}"]`);
+//     if (button) {
+//       button.textContent = "Applied";
+//     }
+//   });
 // });
 
-// document.addEventListener("click", function (e) {
-//   const btn = e.target.closest(".apply-btn");
-//   if (btn) {
-//     const jobId = btn.dataset.id;
-//     Compare(jobId);
-//   }
+// function restoreAppliedState() {
+//   const storedJobs = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+
+//   storedJobs.forEach((jobId) => {
+//     const button = document.querySelector(`[data-job-id="${jobId}"]`);
+//     if (button) {
+//       button.textContent = "Applied";
+//     } else {
+//       console.log("No button found for jobId:", jobId);
+//     }
+//   });
+// }
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   restoreAppliedState(); // Or call it after rendering dynamic HTML
 // });
+// restoreAppliedState();
+
+
+
+
+
+
+
+
+
+// let CompareJobIds = JSON.parse(localStorage.getItem("CompareJobIds")) || [];
+// function Compare(jobId, button) {
+//   console.log("You clicked on:", jobId);
+//   button.innerHTML = "Added";
+//   if (button.innerHTML === "Added") {
+//     if (!CompareJobIds.includes(jobId)) {
+//       CompareJobIds.push(jobId);
+//       localStorage.setItem("CompareJobIds",JSON.stringify(CompareJobIds))
+//     }
+//     console.log(CompareJobIds);
+//     document.getElementById("disappear").style.display = "block";
+//     document.getElementById("box2").style.position = "sticky";
+//     document.getElementById("box2").style.top = "150px";
+//   }
+// }
+
+
+
+// localStorage.clear();
+
 
 function searchnav() {
   let formControl = document.getElementById("form-control");
@@ -1251,12 +1530,12 @@ function initTooltips() {
 }
 function modalpost() {
   document.getElementById("postbox").innerHTML = `
-    <div class="post">
-<div class="publicorprivate">
+    <div class="post" id="post">
+<div class="publicorprivate" >
   <h2><button class="modalbtn">
     <div class="btndiv">
       <div class="modalimg">
-      <img src="./salaar.jfif" alt="" class="imgmodal">
+      <img src="./Assets/salaar.jfif" alt="" class="imgmodal" >
     </div>
     <div class="modalname">
       <span>Durga Prasad <a><i class="bi bi-caret-down-fill"></i></a></span>
@@ -1265,9 +1544,9 @@ function modalpost() {
     </div>
 
   </button></h2>
-  <div class="close"><a href="./index.html" class="btnclose" id="btnclose" onclick="close()"><i class="bi bi-x-lg"></i></a></div>
+  <div class="close"  ><a href="./main.html" class="btnclose" id="btnclose"><i class="bi bi-x-lg" ></i></a></div>
 </div>
-<textarea name="" id=""></textarea>
+<textarea name="" id="" ></textarea>
 <section class="reactions">
 <div><a href=""><i class="bi bi-emoji-smile"></i></a></div>
 <div class="add">
@@ -1291,75 +1570,34 @@ function modalpost() {
   <button type="button" class="btn  text-dark" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Schedule for later">
     <i class="bi bi-clock"></i>
   </button>
-  <button class="addpostbtn">Post</button>
+  <button class="addpostbtn" id="addpostbtn" onclick="close()">Post</button>
 </div>
 </div>
 `;
   document.getElementById("postbox").style.opacity = "1";
   document.querySelector(".page").style.opacity = "0.2";
   initTooltips();
+
+ 
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
   initTooltips();
 });
 
-// DOM elements
-
-
-
-
-// --------------Edit my Preferences-------------------
-
-let emptyarr = [];
-
-// function inputform() {
- 
-//   document.getElementById("addtitle").style.display="none";
-//   document.getElementById(
-//     "addtitleinput"
-//   ).style.display = "flex";
-  
-//   const suggestions = [
-//     "The Taj Mahal Palace, Mumbai",
-//     "Taj Fort Aguda Resort & Spa, Goa",
-//     "Taj Palace, New Delhi",
-//     "Taj Lake Palace, Udaipur",
-//     "Taj Malabar Resort & Spa, Cochin",
-//   ];
-//   function searchSuggestions() {
-//     const input = document.getElementById("addtitleinput").value.toLowerCase();
-//     const list = document.getElementById("suggestionList");
-//     list.innerHTML = "";
-
-//     if (input === "") return;
-
-//     const filtered = suggestions.filter((item) =>
-//       item.toLowerCase().includes(input)
-//     ); // we get what we type here example if we search for taj then taj mahal mumbai will come and taj  fort, taj palace,taj lake ,taj malbar will come
-
-//     filtered.forEach((item) => {
-//       const li = document.createElement("li");
-//       li.textContent = item;
-//       li.onclick = () => {
-//         document.getElementById("addtitleinput").value = item;
-//       };
-//       list.appendChild(li);
+// document.addEventListener("DOMContentLoaded", function () {
+//   const btn = document.getElementById("addpostbtn");
+//   if (btn) {
+//     btn.addEventListener("click", () => {
+//       console.log("mg");
 //     });
-//     // document.querySelector(".modal2").style.height = "390px";
-//     // document.querySelector(".nested").style.display = "none";
-//     document.querySelector("#suggestionList").style.display = "block";
 //   }
-//   document.getElementById("addtitle").addEventListener("input", () => {
-//     const input = document.getElementById("addtitle").value.trim();
-//     if (input === "") {
-//       clearSuggestions();
-//     } else {
-//       searchSuggestions();
-//     }
-//   });
+// });
+function close() {
+  console.log("mg")
+}
 
-// }
 
 function inputform() {
 
@@ -1491,32 +1729,26 @@ function remote() {
 
 function inputform2() {
   const jobLocations = [
-  
-      "Hyderabad, Telangana, India",
-      "Mumbai, Maharashtra, India",
-      "Pune, Maharashtra, India",
-      "Bangalore, Karnataka, India",
-      "Chennai, Tamil Nadu, India",
-      "Kolkata, West Bengal, India",
-      "Delhi, Delhi, India",
-      "Ahmedabad, Gujarat, India",
-      "Jaipur, Rajasthan, India",
-      "Lucknow, Uttar Pradesh, India",
-      "Bhopal, Madhya Pradesh, India",
-      "Patna, Bihar, India",
-      "Ranchi, Jharkhand, India",
-      "Bhubaneswar, Odisha, India",
-      "Thiruvananthapuram, Kerala, India",
-      "Panaji, Goa, India",
-      "Raipur, Chhattisgarh, India",
-      "Shimla, Himachal Pradesh, India",
-      "Dehradun, Uttarakhand, India",
-      "Guwahati, Assam, India"
-   
-    
-  ];
-
-  jobLocations.push(
+    "Hyderabad, Telangana, India",
+    "Mumbai, Maharashtra, India",
+    "Pune, Maharashtra, India",
+    "Bangalore, Karnataka, India",
+    "Chennai, Tamil Nadu, India",
+    "Kolkata, West Bengal, India",
+    "Delhi, Delhi, India",
+    "Ahmedabad, Gujarat, India",
+    "Jaipur, Rajasthan, India",
+    "Lucknow, Uttar Pradesh, India",
+    "Bhopal, Madhya Pradesh, India",
+    "Patna, Bihar, India",
+    "Ranchi, Jharkhand, India",
+    "Bhubaneswar, Odisha, India",
+    "Thiruvananthapuram, Kerala, India",
+    "Panaji, Goa, India",
+    "Raipur, Chhattisgarh, India",
+    "Shimla, Himachal Pradesh, India",
+    "Dehradun, Uttarakhand, India",
+    "Guwahati, Assam, India",
     "New York, New York, United States",
     "San Francisco, California, United States",
     "Los Angeles, California, United States",
@@ -1536,8 +1768,10 @@ function inputform2() {
     "Tokyo, Tokyo, Japan",
     "Bangkok, Bangkok, Thailand",
     "Kuala Lumpur, Federal Territory, Malaysia",
-    "Singapore, Central Region, Singapore"
-  );
+    "Singapore, Central Region, Singapore",
+  ];
+
+ 
   
   const titleinput = document.getElementById("addlocation");
   const input = document.getElementById("addtitleinput2");
@@ -1613,9 +1847,6 @@ function inputform3() {
     "Shimla, Himachal Pradesh, India",
     "Dehradun, Uttarakhand, India",
     "Guwahati, Assam, India",
-  ];
-
-  jobLocations.push(
     "New York, New York, United States",
     "San Francisco, California, United States",
     "Los Angeles, California, United States",
@@ -1635,13 +1866,15 @@ function inputform3() {
     "Tokyo, Tokyo, Japan",
     "Bangkok, Bangkok, Thailand",
     "Kuala Lumpur, Federal Territory, Malaysia",
-    "Singapore, Central Region, Singapore"
-  );
+    "Singapore, Central Region, Singapore",
+  ];
+
+
 
   const titleinput = document.getElementById("addremotelocation");
   const input = document.getElementById("addtitleinput3");
   const list = document.getElementById("searchlist3");
-  const Locations = document.getElementById("Locations");
+  // const Locations = document.getElementById("Locations");
   // Locations.style.flexDirection = "column";
   input.style.display = "flex";
   titleinput.style.display = "none";
@@ -1668,8 +1901,8 @@ function inputform3() {
         </div>
         `;
         document.getElementById("addtitleinput3").innerHTML = "";
-        document.getElementById("addtitleinput2").style.display = "none";
-        // document.getElementById("addremotelocation").style.display = "block";
+        document.getElementById("addtitleinput3").style.display = "none";
+        document.getElementById("addremotelocation").style.display = "block";
         document.getElementById("randombtn4").style.flexDirection = "row";
         document.getElementById("randombtn4").style.gap = "opx";
         document.getElementById("randombtn4").style.height = "auto";
