@@ -27,8 +27,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     alert("Login successful!");
     setTimeout(() => {
       const login = document.getElementById("login"); // or querySelector(".login")
-      login.style.height = "413px";
-
+      // login.style.height = "413px";
+      login.style.height = "430px";
       error.textContent = "✅ You are logging in...";
    
     }, 5000);
@@ -39,8 +39,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     error.textContent = "Please be waited";
     error.style.color = "green";
     error.style.display = "block";
-    login.style.padding = "60px 120px 60px 120px";
-    login.style.height = "413px";
+    // login.style.padding = "60px 120px 60px 120px";
+    // login.style.height = "413px";
+    login.style.height = "430px";
+
     //    alert("✅ You are successfully Logged in");
 
     setTimeout(() => {
@@ -52,7 +54,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     alert("Invalid email or password.");
     error.textContent = "Please enter valid email or password";
 
-    login.style.padding = "42px 120px 42px 120px";
+    // login.style.padding = "42px 120px 42px 120px";
    
     return;
   }

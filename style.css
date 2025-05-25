@@ -275,19 +275,20 @@ justify-content: center;
                  .box1{
                   width: 100%;
                  }
-                 .disappear{
-                  width: 100px;
-                 margin-left: 70% !important;
-                 display: none;
-               position: relative !important;
-                 /* top:150px !important; */
-                 top:20px !important;
-                 }
+             
                  .main-container{
                   padding: 20px !important;
                  }
 
+              
+                 .appliedjobs{
+                  /* width: 300px !important; */
+                 }
+                 
+
   }
+
+
  @media (max-width:375px){
 
     body{
@@ -356,21 +357,7 @@ justify-content: center;
                                      .box1{
                                       width: 100%;
                                      }
-                                     .disappear{
-                                      width: 100px;
-                                     margin-left: 90%;
-                                     display: none;
-                                     position: sticky;
-                                     top:-200px !important;
-                                     }
-                                     .disappear{
-                                      width: 100px;
-                                     margin-left: 70% !important;
-                                     display: none;
-                                   position: relative !important;
-                                     /* top:150px !important; */
-                                     top:0px !important;
-                                     }
+                                   
  }
 
 
@@ -1520,7 +1507,7 @@ margin-top: 12px;
     gap: 30px;
     flex-direction: column;
     position: sticky;
-    top: 70px;
+    top:65px;
     /* z-index: -1; */
 }
 
@@ -2002,6 +1989,7 @@ display: none;
 .addtocartapplied{
 display: flex;
 justify-content: space-between;
+width: 100%;
   
 }
 .appliedjobs,.disappear{

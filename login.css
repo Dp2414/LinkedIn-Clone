@@ -1,3 +1,62 @@
+@media (max-width:1024px){
+  
+  .container{
+    height: 50% !important;
+  }
+  .logsin{
+    height: 10% !important;
+  
+  }
+}
+@media (max-width:768px){
+  
+.logsin{
+  width: 95% !important;
+}
+}
+@media (max-width:425px){
+  .msg>h1{
+    font-size: 24px;
+    gap: 5px !important;
+    padding: 20px;
+  }
+  
+  .logsin{
+    width: 50% !important;
+    flex-direction: column !important;
+    gap: 50px ;
+  }
+  .login{
+    width: 63% !important;
+  }
+ 
+  .login>h1{
+    font-size: 20px;
+  }
+  .container{
+    gap: 0px !important;
+  }
+  .a{
+    width:200px ;
+  }
+  input{
+    width: 130% !important;
+  }
+}
+
+@media (max-width:320px){
+  .logsin{
+    width: 30% !important;
+    flex-direction: column !important;
+    gap: 50px ;
+  }
+  input{
+    width: 150px !important;
+  }
+  .signup{
+    width: 150% !important;
+  }
+}
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -5,41 +64,81 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    
   }
   
   .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
     width: auto;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     height: 100vh;
-    /* background-color: #f8f9fb; */
-    background-image: url("https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background: linear-gradient(135deg, #8ea7c0 0%, #333538 100%);
+    /* background-image: url("https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+  
+    /* Optional: Overlay with gradient */
+   
+  }
+  .msg{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   
+
+  }
+  .msg>h1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+  }
+  .msg>h1>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
   }
   .logsin {
+    /* background-image: url("https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
     display: flex;
     align-items: center;
     width: auto;
+    /* height: 100vh; */
+    height: auto;
     text-align: center;
     justify-content: center;
     align-content: center;
     box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2),
       10px 10px 10px rgba(0, 0, 0, 0.2);
+     
   }
   
   .login {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #edf5e0;
     /* padding: 67px 120px 67px 120px; */
-    height: 450px;
-    padding: 42px 150px 42px 150px;
+  height: 430px;
+ 
+    /* padding: 42px 150px 42px 150px; */
+    width: 100%;
+    /* padding: 30px 120px; */
+    padding: 30px 120px;
   }
   .logos {
     display: flex;
@@ -85,9 +184,11 @@ body {
   }
   input {
     background-color: #edf5e0;
-    border: none;
-    width: 130%;
-    height: 30px;
+    border: 1px solid rgb(144, 170, 179);/*Added*/
+    padding-left: 10px;/*Added*/
+    border-radius: 5px; /*Added*/
+    width: 100%;
+    height: 25px;
   }
   h4 {
     font-weight: lighter;
@@ -111,20 +212,25 @@ body {
     color: black;
   }
   .signup {
+    width: 100%;
+    height: 430px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
+    justify-content: center;
+    padding: 30px 80px;
     background: linear-gradient(to right, #e0e3d8, #eaf1df);
-    padding: 179px 80px 179px 80px;
+    /* padding: 179px 80px 179px 80px; */
+    /* height: 100vh; */
   }
   .signup > h1 {
     font-size: 2em;
-    margin: 0em 0px;
-    font-weight: 800;
+    margin: 0px;
+    font-weight: 700;
   }
   .login > h1 {
-    font-weight: 800;
+    font-weight: 700;
+   
   }
   
   /* .btn1:hover,.btn2:hover{
@@ -135,6 +241,6 @@ body {
       color: wheat;
   } */
   
- 
+
 
   
