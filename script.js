@@ -553,32 +553,32 @@ let posts = [
 function renderPosts() {
   const container = document.getElementById("mainposts");
 
-  posts.map((post) => {
+  posts.map((i) => {
     container.innerHTML += `
         <div class="post-card">
           <div class="post-header">
            <div class="imageandname ">
-            <img src="${post.profileImage}" alt="Profile" class="profile-img" />
+            <img src="${i.profileImage}" alt="Profile" class="profile-img" />
             <div class="userinfo">
-             <h5 class="m-0 p-0" >${post.name}</h5>
+             <h5 class="m-0 p-0" >${i.name}</h5>
              <span class="skills"> <a href="">Innovative problem solver</a> | <a href="">Computer science graduate</a> | <a href="">AI enthusiastic</a>
 
 </span>
-   <p class="timestamp">${post.timestamp} • <i class="bi bi-globe-americas"></i></p> 
+   <p class="timestamp">${i.timestamp} • <i class="bi bi-globe-americas"></i></p> 
 </div>
              </div>
             <div class="post-content">
              
-              <span>${post.designation}</span>
+              <span>${i.designation}</span>
            
-              <span >${post.content}</span>
+              <span >${i.content}</span>
             </div>
           </div>
           
-          <img src="${post.postImage}" alt="Post" class="post-img" />
+          <img src="${i.postImage}" alt="Post" class="post-img" />
           <div class="post-footer">
-            <span><i class="bi bi-hand-thumbs-up"  style="transform: scaleX(-1);"></i> ${post.likes}</span>
-            <span>💬 ${post.comments}</span>
+            <span><i class="bi bi-hand-thumbs-up"  style="transform: scaleX(-1);"></i> ${i.likes}</span>
+            <span>💬 ${i.comments}</span>
             <span><i class="bi bi-repeat"></i> 5</span>
              <span><i class="bi bi-send"></i> 6</span>
 
@@ -917,7 +917,7 @@ const jobsData = {
 let CompareJobIds = JSON.parse(localStorage.getItem('CompareJobIds')) || [];
 let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
 function jobs() {
-  document.getElementById("main-container").style.display="";
+  document.getElementById("main-container").style.display = "";
   const main = document.getElementById("main-container");
   // main.style.padding = "40px";
   main.style.margin = "auto";
@@ -945,6 +945,7 @@ function jobs() {
 
 </div>
 <button class=" btn bg-primary searchbtn"> <i class="bi bi-search"></i> Search</button>
+<button class="searchclose" id="searchclose" onclick="searchclose()"> <i class="bi bi-x-circle"></i></button>
 </div>
 <div class="addtocartapplied">
 <button class="appliedjobs btn btn-primary bg-primary" id="appliedjobs" onclick="Appliedjobs()">Applied Jobs </button>
@@ -1021,7 +1022,6 @@ function jobs() {
       </div>
   `;
 
-  
   const keywordInput = document.querySelector(".input1");
   const experienceInput = document.querySelector(".input2");
   const locationInput = document.querySelector(".input3");
@@ -1069,53 +1069,74 @@ function jobs() {
     `;
     });
   }
+  renderJobs(jobsData.jobs);
   const searchNav = document.getElementById("searchnav");
   const formcontrol = document.getElementById("form-control");
   const bigbox = document.getElementById("bigbox");
 
-  bigbox.addEventListener("click", () => {
-    searchNav.style.display = "none";
+  // bigbox.addEventListener("click", () => {
+  //   searchNav.style.display = "none";
+  //   document.getElementById('jobs-container').style.display = "block";
 
-    formcontrol.style.display = "block";
-  });
-  renderJobs(jobsData.jobs);
+  //   formcontrol.style.display = "block";
+  // });
+  // document.getElementById('main-container').addEventListener('click', () => {
+  //   // searchNav.style.display = "none";
+  //   formcontrol.style.display = "block";
+  // })
+  // document.querySelector(".box1").addEventListener("click", () => {
+  //   searchNav.style.display = "flex";
+  // });
+
+
+
+  // document.getElementById('main-container').addEventListener('click', () => {
+  //   searchNav.style.display = "none";
+  //   // document.getElementById('jobsbox')
+  //   // formcontrol.style.display = "block";
+  // })
+
+  // document.getElementById("jobsbox").addEventListener("click", () => {
+  //   searchNav.style.display = "none";
+   
+  // });
 
   // const storedCompareIds =
   //   JSON.parse(localStorage.getItem("CompareJobIds")) || [];
 
+  function compareapplied() {
+    CompareJobIds.forEach((jobId) => {
+      const button = document.querySelector(`[data-jobcompare-id="${jobId}"]`);
+      if (button) {
+        button.textContent = "Selected";
+        document.getElementById("disappear").style.display = "block";
+      }
+    });
 
-  CompareJobIds.forEach((jobId) => {
-    const button = document.querySelector(`[data-jobcompare-id="${jobId}"]`);
-    if (button) {
-      button.textContent = "Selected";
-      document.getElementById('disappear').style.display = "block";
-     
-    }
-  });
+    // const appliedIds1 = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+    appliedJobsId.forEach((jobId) => {
+      const button = document.querySelector(`[data-jobapply-id="${jobId}"]`);
+      if (button) {
+        button.textContent = "Applied";
 
-  // const appliedIds1 = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
-  appliedJobsId.forEach((jobId) => {
-    const button = document.querySelector(`[data-jobapply-id="${jobId}"]`);
-    if (button) {
-      button.textContent = "Applied";
-      
-      document.getElementById("appliedjobs").style.display = "block";
-    }
-    if (button.textContent == "Applied") {
-      document.getElementById("appliedjobs").style.display = "block";
-    }
-  
-  });
-
-
+        document.getElementById("appliedjobs").style.display = "block";
+      }
+      if (button.textContent == "Applied") {
+        document.getElementById("appliedjobs").style.display = "block";
+      }
+    });
+  }
+  compareapplied();
   const dropdown = document.getElementById("dropdown3");
   const btn = dropdown.querySelector(".dropdown-btn");
   const list = dropdown.querySelector(".dropdown-list");
   const selected = document.getElementById("selected");
   let searchnavbar = document.getElementById("searchnav");
+
   btn.addEventListener("click", () => {
     dropdown.classList.toggle("open");
     list.style.display = dropdown.classList.contains("open") ? "block" : "none";
+
     document.getElementById("box2").style.zIndex = "-1";
   });
 
@@ -1130,85 +1151,58 @@ function jobs() {
   searchButton.addEventListener("click", () => {
     const keyword = keywordInput.value.toLowerCase();
 
-    
-    const experience = document.getElementById("selected").textContent.toLowerCase();
+    const experience = document
+      .getElementById("selected")
+      .textContent.toLowerCase();
     const location = locationInput.value.toLowerCase();
 
-    const filtered = jobsData.jobs.filter((job) => {
+    const filtered = jobsData.jobs.filter((i) => {
       const titleMatch =
-        job.title.toLowerCase().includes(keyword) ||
-        job.description.toLowerCase().includes(keyword) ||
-        job.company.toLowerCase().includes(keyword);
-     
+        i.title.toLowerCase().includes(keyword) ||
+        i.description.toLowerCase().includes(keyword) ||
+        i.company.toLowerCase().includes(keyword);
 
       const experienceMatch = experience
-        ? (() => { 
-          console.log(job.experience)
-          if (experience.toLowerCase() === "fresher" && experience.toLowerCase() == job.experience.toLowerCase())
-            return true;
-          const selectedExp = parseInt(experience);
-          const jobExp = parseInt(job.experience || "0");
-          // console.log(selectedExp)
-          return selectedExp?jobExp >= selectedExp: false  ;
-        })()
+        ? (() => {
+            console.log(i.experience);
+            if (
+              experience.toLowerCase() === "fresher" &&
+              experience.toLowerCase() == i.experience.toLowerCase()
+            )
+              return true;
+            const selectedExp = parseInt(experience);
+            const jobExp = parseInt(i.experience || "0");
+            // console.log(selectedExp)
+            return selectedExp ? jobExp >= selectedExp : false;
+          })()
         : true;
-      
-      
-
-      
-      // const experienceMatch = experience
-      //   ? (() => {
-      //       if (experience.includes("fresher")) return jobExp >= selectedExp;
-
-      //       const selectedExp = parseInt(experience); // user input
-      //       const jobExp = parseInt(job.experience || "0"); // job data
-
-      //       // If selectedExp is a number and jobExp is a number, compare
-      //       if (!isNaN(selectedExp) && !isNaN(jobExp)) {
-      //         return jobExp >= selectedExp;
-      //       }
-
-      //       return false; // fallback
-      //     })()
-      //   : true;
 
       const locationMatch = location
         ? job.location.toLowerCase().includes(location)
         : true;
-      console.log(locationMatch,experienceMatch,titleMatch);
+      console.log(locationMatch, experienceMatch, titleMatch);
       return titleMatch && experienceMatch && locationMatch;
-    
-    
     });
     console.log(filtered);
 
     renderJobs(filtered);
-   
+
+    compareapplied();
   });
 
   document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target)) {
       dropdown.classList.remove("open");
       list.style.display = "none";
-      document.getElementById("box2").style.zIndex = "0";
-     
+      document.getElementById("box2").style.zIndex = "-3";
     }
   });
 
- 
   // const list1 = main.querySelector("#jobs-container");
 
-
-
- 
- 
-  document.getElementById('form-control').placeholder="Search jobs here"
-
-
- 
+  document.getElementById("form-control").placeholder = "Search jobs here";
 
   function Compare(jobId, button) {
-
     if (!jobId) return;
     const inList = CompareJobIds.includes(jobId);
     if (inList) {
@@ -1225,7 +1219,11 @@ function jobs() {
     console.log("You clicked on:", jobId);
 
     localStorage.setItem("CompareJobIds", JSON.stringify(CompareJobIds));
-    if (!CompareJobIds || CompareJobIds.length === 0 || CompareJobIds.every((id) => id === null)) {
+    if (
+      !CompareJobIds ||
+      CompareJobIds.length === 0 ||
+      CompareJobIds.every((id) => id === null)
+    ) {
       document.getElementById("disappear").style.display = "none";
     }
 
@@ -1237,49 +1235,41 @@ function jobs() {
     //       localStorage.setItem("CompareJobIds",JSON.stringify(CompareJobIds))
     //     }
     //     console.log(CompareJobIds);
-        
+
     // }
-    
-
-
   }
   function Apply(jobId, button) {
     if (!jobId) return;
-  
-    // let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
- 
-    const inList = appliedJobsId.includes(jobId);
-  if (inList) {
-    // remove
-    appliedJobsId = appliedJobsId.filter(id => id !== jobId);
-    button.textContent = 'Apply';
-          
-  }
-  else {
-   
-    appliedJobsId.push(jobId);
-    button.textContent = "Applied";
-      
-  }
-  console.log("You clicked on:", jobId);
-  
 
-    localStorage.setItem('appliedJobsId', JSON.stringify(appliedJobsId));
-   
-    if (!appliedJobsId || appliedJobsId.length === 0 || appliedJobsId.every((id) => id === null)) {
-      
-      document.getElementById("appliedjobs").style.display = "none";
+    // let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+
+    const inList = appliedJobsId.includes(jobId);
+    if (inList) {
+      // remove
+      appliedJobsId = appliedJobsId.filter((id) => id !== jobId);
+      button.textContent = "Apply";
+    } else {
+      appliedJobsId.push(jobId);
+      button.textContent = "Applied";
     }
-    else if(button.textContent==="Applied") {
+    console.log("You clicked on:", jobId);
+
+    localStorage.setItem("appliedJobsId", JSON.stringify(appliedJobsId));
+
+    if (
+      !appliedJobsId ||
+      appliedJobsId.length === 0 ||
+      appliedJobsId.every((id) => id === null)
+    ) {
+      document.getElementById("appliedjobs").style.display = "none";
+    } else if (button.textContent === "Applied") {
       document.getElementById("appliedjobs").style.display = "block";
     }
     // else if (button.textContent === "Apply") {
-      
-    // }
- 
-  // ------------------------
 
-  
+    // }
+
+    // ------------------------
   }
 
   // document.addEventListener("DOMContentLoaded", function () {
@@ -1296,8 +1286,14 @@ function jobs() {
   window.Compare = Compare;
   window.Apply = Apply;
 
-
+  document.getElementById("form-control").style.display = "block";
 }
+
+function searchclose() {
+  document.getElementById("searchnav").style.display = "none";
+  document.getElementById('form-control').style.display = "block";
+}
+
 
 // localStorage.clear()
 
