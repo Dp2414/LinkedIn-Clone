@@ -98,3 +98,18 @@ function signup() {
 
   window.location.href = "./signup.html";
 }
+
+if (window.matchMedia("(max-width: 425px)").matches) {
+  document.getElementById('mobile').innerHTML = `
+ 
+<p>Dont have an Account ?</p>
+  <button class="mobilebtn" onclick="mobilebtn">Sign Up</button>  
+  `;
+
+  document.getElementById("signup").style.display="none";
+
+}
+
+function mobilebtn() {
+  window.location.href="./signup.html"
+}

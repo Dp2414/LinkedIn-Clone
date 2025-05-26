@@ -243,4 +243,17 @@ body {
   
 
 
+  .mobilebtn{
+    border: none;
+    background-color: #edf4e0;
+    border: 1px solid #05386b;
+    border-radius: 20px;
+    /* padding: 10px 43px 10px 43px; */
+    padding: 10px 40px 10px 40px;
+  
+    font-weight: 600;
+    cursor: pointer;
+   
+
+  }
   

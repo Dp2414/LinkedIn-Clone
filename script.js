@@ -614,6 +614,7 @@ if (window.matchMedia("(max-width: 425px)").matches) {
   }
 }
 
+
 const jobsData = {
   jobs: [
     {
@@ -914,8 +915,9 @@ const jobsData = {
   ],
 };
 // let CompareJobIds = JSON.parse(localStorage.getItem("CompareJobIds")) || [];
-let CompareJobIds = JSON.parse(localStorage.getItem('CompareJobIds')) || [];
+let CompareJobIds = JSON.parse(localStorage.getItem("CompareJobIds")) || [];
 let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
+
 function jobs() {
   document.getElementById("main-container").style.display = "";
   const main = document.getElementById("main-container");
@@ -926,10 +928,10 @@ function jobs() {
     <div class="jobsbox" id="jobsbox">
       <div class="searchnav" id="searchnav">
     <div class="inputdiv">
-    <span><input type="text" name="" id="" class="input1" placeholder="Enter Keyword / designation / companies"></span>  <span class="slash1">|</span>
+    <span><input type="text" name="" id="" class="input1" placeholder="Enter Keyword / designation / companies"></span>  <span class="slash1" id="slash1">|</span>
 <div class="custom-dropdown" id="dropdown3">
   <div class="dropdown-btn" tabindex="0">
-    <span id="selected"><input type="text" placeholder="Select Experience" class="input2"></span>
+    <span id="selected"><input type="text" placeholder="Select Experience" class="input2" id="input2"></span>
     <span class="arrow">▼</span>
   </div>
   <div class="dropdown-list" onclick="editpref()">
@@ -940,7 +942,8 @@ function jobs() {
     <div data-value="4">4 years</div>
     <div data-value="5">5 years</div>
   </div>
-</div>   <span class="slash1">|</span>
+</div>
+<span class="slash2" id="slash2">|</span>
 <span><input type="text" name="" id="" class="input3" placeholder="Enter Location"></span>  
 
 </div>
@@ -953,7 +956,7 @@ function jobs() {
 </div>  
 <div class="bigbox" id="bigbox">
     <div class="box1" id="box" >
-    <h2>Jobs You May Be Interested In</h2>
+    <h2 class="jobdescription">Jobs You May Be Interested In</h2>
     
     <div id="jobs-container"></div>
     </div>
@@ -1022,6 +1025,7 @@ function jobs() {
       </div>
   `;
 
+
   const keywordInput = document.querySelector(".input1");
   const experienceInput = document.querySelector(".input2");
   const locationInput = document.querySelector(".input3");
@@ -1068,6 +1072,13 @@ function jobs() {
       </div>
     `;
     });
+    if (window.matchMedia("(max-width: 800px)").matches) {
+      let slashes = document.getElementById("slash1");
+
+      slashes.innerHTML = `__________________________`;
+      let slashes2 = document.getElementById("slash2");
+      slashes2.innerHTML = `__________________________`;
+    }
   }
   renderJobs(jobsData.jobs);
   const searchNav = document.getElementById("searchnav");
@@ -1088,8 +1099,6 @@ function jobs() {
   //   searchNav.style.display = "flex";
   // });
 
-
-
   // document.getElementById('main-container').addEventListener('click', () => {
   //   searchNav.style.display = "none";
   //   // document.getElementById('jobsbox')
@@ -1098,7 +1107,7 @@ function jobs() {
 
   // document.getElementById("jobsbox").addEventListener("click", () => {
   //   searchNav.style.display = "none";
-   
+
   // });
 
   // const storedCompareIds =
@@ -1121,14 +1130,15 @@ function jobs() {
 
         document.getElementById("appliedjobs").style.display = "block";
       }
-      if (button.textContent == "Applied") {
-        document.getElementById("appliedjobs").style.display = "block";
-      }
+      // if (button.textContent == "Applied") {
+      //   document.getElementById("appliedjobs").style.display = "block";
+      // }
     });
   }
   compareapplied();
   const dropdown = document.getElementById("dropdown3");
   const btn = dropdown.querySelector(".dropdown-btn");
+  const input2 = document.getElementById('input2');
   const list = dropdown.querySelector(".dropdown-list");
   const selected = document.getElementById("selected");
   let searchnavbar = document.getElementById("searchnav");
@@ -1147,6 +1157,7 @@ function jobs() {
       list.style.display = "none";
       console.log(selected.textContent);
     }
+    // console.log(e.target.dataset.value)
   });
   searchButton.addEventListener("click", () => {
     const keyword = keywordInput.value.toLowerCase();
@@ -1155,30 +1166,35 @@ function jobs() {
       .getElementById("selected")
       .textContent.toLowerCase();
     const location = locationInput.value.toLowerCase();
-
+    
+ 
     const filtered = jobsData.jobs.filter((i) => {
       const titleMatch =
         i.title.toLowerCase().includes(keyword) ||
         i.description.toLowerCase().includes(keyword) ||
         i.company.toLowerCase().includes(keyword);
+ 
 
       const experienceMatch = experience
         ? (() => {
+          
             console.log(i.experience);
-            if (
+          if (
+              
               experience.toLowerCase() === "fresher" &&
               experience.toLowerCase() == i.experience.toLowerCase()
             )
               return true;
             const selectedExp = parseInt(experience);
-            const jobExp = parseInt(i.experience || "0");
+          const jobExp = parseInt(i.experience || "0");
+        
             // console.log(selectedExp)
             return selectedExp ? jobExp >= selectedExp : false;
           })()
         : true;
 
       const locationMatch = location
-        ? job.location.toLowerCase().includes(location)
+        ? i.location.toLowerCase().includes(location)
         : true;
       console.log(locationMatch, experienceMatch, titleMatch);
       return titleMatch && experienceMatch && locationMatch;
@@ -1194,7 +1210,7 @@ function jobs() {
     if (!dropdown.contains(e.target)) {
       dropdown.classList.remove("open");
       list.style.display = "none";
-      document.getElementById("box2").style.zIndex = "-3";
+      document.getElementById("box2").style.zIndex = "5";
     }
   });
 
@@ -1289,22 +1305,15 @@ function jobs() {
   document.getElementById("form-control").style.display = "block";
 }
 
-function searchclose() {
-  document.getElementById("searchnav").style.display = "none";
-  document.getElementById('form-control').style.display = "block";
-}
 
 
 // localStorage.clear()
 
-
-
 // function Compare(jobId) {
 //   console.log("You clicked on:", jobId);
- 
-// }
-// 
 
+// }
+//
 
 // let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
 // function Apply(jobId, button) {
@@ -1330,21 +1339,15 @@ function searchclose() {
 // }
 // updateAppliedButtons();
 
-
-
-
 function AddtoCart() {
- 
   document.getElementById("main-container").innerHTML = "";
 
-
-  const appliedJobs = jobsData.jobs.filter((job) =>
-    CompareJobIds.includes(job.jobId)
-  // CompareJobIds.some(id => id === job.jobId)
+  const appliedJobs = jobsData.jobs.filter(
+    (job) => CompareJobIds.includes(job.jobId)
+    // CompareJobIds.some(id => id === job.jobId)
   );
 
   if (appliedJobs.length === 0) {
-   
     document.getElementById("main-container").innerHTML =
       "<p>No jobs applied yet.</p>";
     return;
@@ -1352,7 +1355,7 @@ function AddtoCart() {
 
   document.getElementById(
     "main-container"
-  ).innerHTML += `<div><h4>Applied Job Info</h4> <hr></div>
+  ).innerHTML += `<div><h4 style="text-align: center; color: #0A66C2;">Find Work That Works for You</h4> <hr></div>
   
   <div class="jobsdiv" id="jobsdiv">
   </div>
@@ -1380,10 +1383,7 @@ function AddtoCart() {
     document.getElementById("main-container").style.alignItems = "center";
     document.getElementById("main-container").style.alignContent = "center";
     // document.getElementById("main-container").style.textAlign = "center";
-    
   });
-
- 
 }
 
 function Appliedjobs() {
@@ -1402,7 +1402,7 @@ function Appliedjobs() {
 
   document.getElementById(
     "main-container"
-  ).innerHTML += `<div><h4>Applied Job Info</h4> <hr></div>
+  ).innerHTML += `<div ><h4 class="jobsinfo" id="jobsinfo">Applied Job Info</h4> <hr></div>
   
   <div class="jobsdiv" id="jobsdiv">
   </div>
@@ -1418,7 +1418,7 @@ function Appliedjobs() {
         <p><strong>Description:</strong> ${job.description}</p>
         <p><strong>Type:</strong> ${job.type}</p>
         <hr/>
-           <button class="btn btn-primary bg-primary "><a href="${job.applyLink}"  target="_blank" class="Applynow">Apply Now</a></button>
+           <button class="btn btn-primary bg-primary "><a href="${job.applyLink}"  target="_blank" class="Applynow">Applied</a></button>
       </div>
       
       
@@ -1431,8 +1431,19 @@ function Appliedjobs() {
     document.getElementById("main-container").style.alignContent = "center";
     // document.getElementById("main-container").style.textAlign = "center";
   });
-}
+  if (appliedJobsId.length > 1) {
+  document.getElementById("jobsinfo").textContent = "Applied Jobs Info";
+  }
+  (function () {
+    if (appliedJobsId.length > 6) {
+      alert("Arey You Cant Apply More Than 6 Jobs --  PAY MORE TO APPLY MORE");
+      document.getElementById('main-container').innerHTML = "";
+      window.location.href = "./main.html";
+      localStorage.removeItem('appliedJobsId');
+    }
+  })();
 
+}
 
 // let appliedJobsId = JSON.parse(localStorage.getItem("appliedJobsId")) || [];
 
@@ -1475,14 +1486,6 @@ function Appliedjobs() {
 // });
 // restoreAppliedState();
 
-
-
-
-
-
-
-
-
 // let CompareJobIds = JSON.parse(localStorage.getItem("CompareJobIds")) || [];
 // function Compare(jobId, button) {
 //   console.log("You clicked on:", jobId);
@@ -1499,10 +1502,7 @@ function Appliedjobs() {
 //   }
 // }
 
-
-
 // localStorage.clear();
-
 
 function searchnav() {
   let formControl = document.getElementById("form-control");
@@ -1513,9 +1513,15 @@ function searchnav() {
   searchnavbar.style.display = "flex";
   // searchnavbar.style.transform= "translateX(-20px)";
   // searchnavbar.style.transition = "opacity 1s ease, transform 0.3s ease";
- 
 
   searchnavbar.classList.add("ok1");
+}
+function searchclose() {
+  document.getElementById("searchnav").style.display = "none";
+
+  document.getElementById("form-control").style.display = "flex";
+
+  jobs();
 }
 
 function initTooltips() {
@@ -1573,10 +1579,7 @@ function modalpost() {
   document.getElementById("postbox").style.opacity = "1";
   document.querySelector(".page").style.opacity = "0.2";
   initTooltips();
-
- 
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   initTooltips();
@@ -1591,20 +1594,17 @@ document.addEventListener("DOMContentLoaded", function () {
 //   }
 // });
 function close() {
-  console.log("mg")
+  console.log("mg");
 }
 
-
 function inputform() {
-
-
   const jobTitles = [
     "Frontend Developer",
     "Frontend Web Developer",
     "Frotn Desk Clerk",
     "Front Desk Attendent",
     "Freelance",
-   " Front Desk Staff",
+    " Front Desk Staff",
     "Frontend Engineer",
     "Senior Frontend Developer",
     "Frontend Manager",
@@ -1616,9 +1616,8 @@ function inputform() {
     "Website Developer",
     "Web Builder",
     "Worker",
-
   ];
-const titleinput = document.getElementById("addtitle");
+  const titleinput = document.getElementById("addtitle");
   const input = document.getElementById("addtitleinput");
   const list = document.getElementById("searchlist");
   const locations = document.getElementById("Locations");
@@ -1626,11 +1625,11 @@ const titleinput = document.getElementById("addtitle");
   jobtitles.style.flexDirection = "column";
   input.style.display = "flex";
   titleinput.style.display = "none";
-//  locations.style.flexDirection = "column-reverse";
+  //  locations.style.flexDirection = "column-reverse";
 
   input.addEventListener("input", () => {
     const inputvalue = input.value.toLowerCase();
-    document.getElementById('searchlist').style.display = "block";
+    document.getElementById("searchlist").style.display = "block";
     list.innerHTML = ""; // clear previous
 
     // if (!query) return;
@@ -1651,10 +1650,9 @@ const titleinput = document.getElementById("addtitle");
         `;
         document.getElementById("addtitleinput").style.display = "none";
         document.getElementById("addtitle").style.display = "flex";
-        document.getElementById('randombtn').style.flexDirection = "row";
-        document.getElementById("randombtn").style.gap =
-          "5px";
-        document.getElementById('randombtn').style.height="auto"
+        document.getElementById("randombtn").style.flexDirection = "row";
+        document.getElementById("randombtn").style.gap = "5px";
+        document.getElementById("randombtn").style.height = "auto";
         document.getElementById("searchlist").style.display = "none";
         // document.getElementById("Locations").style.flexDirection = "column-reverse";
         jobtitles.style.flexDirection = "column-reverse";
@@ -1664,17 +1662,12 @@ const titleinput = document.getElementById("addtitle");
     });
   });
 
- 
-
-
   document.addEventListener("click", (e) => {
     if (e.target !== input) list.innerHTML = "";
-     document.getElementById("searchlist").style.display = "none";
+    document.getElementById("searchlist").style.display = "none";
   });
-  
 }
 function titlebtns() {
-
   document.getElementById("titlebtns").remove();
 }
 
@@ -1683,7 +1676,9 @@ function onsite() {
   if (site1.style.backgroundColor === "rgb(1, 117, 79)") {
     site1.style.backgroundColor = "";
     site1.style.color = "black";
-    document.getElementById("plus1").innerHTML = `<i class="bi bi-plus-lg"></i>`;
+    document.getElementById(
+      "plus1"
+    ).innerHTML = `<i class="bi bi-plus-lg"></i>`;
   } else {
     site1.style.backgroundColor = "#01754f";
     site1.style.color = "white";
@@ -1694,13 +1689,12 @@ function onsite() {
 function hybrid() {
   let site2 = document.getElementById("site2");
   if (site2.style.backgroundColor === "rgb(1, 117, 79)") {
-   
     site2.style.backgroundColor = "";
     site2.style.color = "black";
-    document.getElementById("plus2").innerHTML = `<i class="bi bi-plus-lg"></i>`;
-
+    document.getElementById(
+      "plus2"
+    ).innerHTML = `<i class="bi bi-plus-lg"></i>`;
   } else {
-   
     site2.style.backgroundColor = "#01754f";
     site2.style.color = "white";
     document.getElementById("plus2").innerHTML = `<i class="bi bi-check2"></i>`;
@@ -1709,19 +1703,17 @@ function hybrid() {
 function remote() {
   let site3 = document.getElementById("site3");
   if (site3.style.backgroundColor === "rgb(1, 117, 79)") {
-   
     site3.style.backgroundColor = "";
     site3.style.color = "black";
-    document.getElementById("plus3").innerHTML = `<i class="bi bi-plus-lg"></i>`;
+    document.getElementById(
+      "plus3"
+    ).innerHTML = `<i class="bi bi-plus-lg"></i>`;
   } else {
-   
     site3.style.backgroundColor = "#01754f";
     site3.style.color = "white";
     document.getElementById("plus3").innerHTML = `<i class="bi bi-check2"></i>`;
   }
 }
-
-
 
 function inputform2() {
   const jobLocations = [
@@ -1767,8 +1759,6 @@ function inputform2() {
     "Singapore, Central Region, Singapore",
   ];
 
- 
-  
   const titleinput = document.getElementById("addlocation");
   const input = document.getElementById("addtitleinput2");
   const list = document.getElementById("searchlist2");
@@ -1865,8 +1855,6 @@ function inputform3() {
     "Singapore, Central Region, Singapore",
   ];
 
-
-
   const titleinput = document.getElementById("addremotelocation");
   const input = document.getElementById("addtitleinput3");
   const list = document.getElementById("searchlist3");
@@ -1916,7 +1904,8 @@ function inputform3() {
   });
 }
 
-
 function titlebtns3() {
   document.getElementById("titlebtns3").remove();
 }
+
+
