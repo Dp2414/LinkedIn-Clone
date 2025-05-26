@@ -29,7 +29,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       const login = document.getElementById("login"); // or querySelector(".login")
       // login.style.height = "413px";
       login.style.height = "430px";
-      error.textContent = "✅ You are logging in...";
+      error.textContent = " You are logging in...";
    
     }, 5000);
     setTimeout(() => {
@@ -43,7 +43,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     // login.style.height = "413px";
     login.style.height = "430px";
 
-    //    alert("✅ You are successfully Logged in");
+    //    alert(" You are successfully Logged in");
 
     setTimeout(() => {
       window.location.href = "./loader.html";
@@ -62,35 +62,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
  
 
 
-  //   if (!emailRegex.test(email)) {
-  //       error.textContent = "Please enter valid email";
-  //        login.style.padding = "60px 120px 60px 120px";
-
-  //     return;
-  //   }
-
-  //   if (!passwordRegex.test(password)) {
-  //     error.textContent = "Password incorrect";
-  //       login.style.padding ='60px 120px 60px 120px';
-  //     return;
-  //     }
-  // setTimeout(() => {
-  //   error.textContent = "✅ You are logging in...";
-
-  // }, 3000);
-  //     setTimeout(() => {
-  //       error.textContent = "Done ✅";
-  //     }, 5000);
-  //       error.textContent = "Please be waited";// Clear previous errors if any
-  //     error.style.color = "green";
-  //     error.style.display = "block";
-  //    login.style.padding = "60px 120px 60px 120px";
-  // //    alert("✅ You are successfully Logged in");
-
-  //       setTimeout(() => {
-  //           window.location.href = "https://www.youtube.com/";
-
-  //       }, 6000);
 });
 
 function signup() {
@@ -99,17 +70,31 @@ function signup() {
   window.location.href = "./signup.html";
 }
 
-if (window.matchMedia("(max-width: 425px)").matches) {
-  document.getElementById('mobile').innerHTML = `
  
-<p>Dont have an Account ?</p>
-  <button class="mobilebtn" onclick="mobilebtn">Sign Up</button>  
-  `;
+// if (window.matchMedia("(max-width: 425px)").matches) {
+//   document.getElementById("mobile").innerHTML = `
+ 
+// <p>Dont have an Account ?</p>
+//   <button class="mobilebtn" onclick="random()">SIGN UP</button>
+  
+//   `;
 
-  document.getElementById("signup").style.display="none";
+//   document.getElementById("signup").style.display = "none";
+//   function random() {
+//     window.location.href = "./signup.html";
+//   }
+ 
+ 
+  
 
-}
+//    }
+   
 
-function mobilebtn() {
-  window.location.href="./signup.html"
-}
+
+
+
+
+
+// function mobilebtn() {
+//   window.location.href="./signup.html"
+// }
